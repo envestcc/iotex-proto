@@ -19,12 +19,18 @@ message Transfer {
   bytes payload = 3;
 }
 
+enum CandidateType {
+  ConsensusCandidate = 0;
+  ExecutionCandidate = 1;
+}
+
 // Candidates and list of candidates
 message Candidate {
   string address = 1;
   bytes votes = 2;
   bytes pubKey = 3;
   string rewardAddress = 4;
+  CandidateType type = 5;
 }
 
 message CandidateList {
@@ -95,6 +101,7 @@ message CandidateBasicInfo {
   string name = 1;
   string operatorAddress = 2;
   string rewardAddress = 3;
+  CandidateType type = 4;
 }
 
 message CandidateRegister {
