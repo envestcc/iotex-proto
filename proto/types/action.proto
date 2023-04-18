@@ -106,6 +106,19 @@ message CandidateRegister {
   bytes payload = 6;
 }
 
+message ProposerBasicInfo{
+  string operatorAddress = 2;
+  string rewardAddress = 3;
+}
+
+message ProposerRegister {
+  ProposerBasicInfo proposer = 1;
+  uint32 stakedDuration = 2;
+  bool autoStake = 3;
+  string ownerAddress = 4;
+  bytes payload = 5;
+}
+
 message StartSubChain {
   // TODO: chainID chould be assigned by system and returned via a receipt
   uint32 chainID = 1;
@@ -251,6 +264,7 @@ message ActionCore {
     StakeTransferOwnership stakeTransferOwnership = 46;
     CandidateRegister candidateRegister = 47;
     CandidateBasicInfo candidateUpdate = 48;
+    ProposerRegister proposerRegister = 51;
 
     PutPollResult putPollResult = 50;
   }
